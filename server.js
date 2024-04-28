@@ -1,8 +1,9 @@
 require('dotenv').config();
-
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 
 const port = 5000;
 
@@ -36,7 +37,6 @@ async function getGoogleSheetClient() {
         throw new Error(`Failed to get Google Sheets client: ${error.message}`);
     }
 }
-
 
 
 app.get('/guests', async (req, res) => {
